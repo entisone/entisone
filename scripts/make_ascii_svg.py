@@ -25,7 +25,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "source-prepped.png"
@@ -33,6 +33,11 @@ OUT = ROOT / "ascii-portrait.svg"
 
 RAMP = " .`:-=+*cs#%@"  # bright (sparse) -> dark (dense)
 #        ^ leading space clears the background to nothing
+
+# Tone curve applied to darkness before it hits the ramp. Straight linear
+# mapping buries a photo in the dense half of the ramp and the face reads as
+# one blob; >1 lifts the midtones so only genuine shadow gets the heavy glyphs.
+GAMMA = 1.7
 
 COLS = 100
 FONT_SIZE = 8.0
@@ -85,6 +90,11 @@ def load_source() -> Image.Image:
 
 def to_rows(img: Image.Image) -> list[str]:
     """Downsample to a character grid and map brightness onto the density ramp."""
+    # CLAHE leaves fine grain in flat areas like fabric; averaging it out before
+    # the downsample stops the shirt turning into speckle.
+    blur = max(1, img.width // (COLS * 5))
+    img = img.filter(ImageFilter.GaussianBlur(radius=blur))
+
     # Characters are about twice as tall as wide, so squash the row count to match.
     rows = max(1, round(COLS * img.height / img.width * (CHAR_W / LINE_H)))
     small = np.asarray(img.resize((COLS, rows), Image.LANCZOS), dtype=np.float64)
@@ -94,7 +104,11 @@ def to_rows(img: Image.Image) -> list[str]:
     if hi - lo > 1:
         small = (small - lo) * (255.0 / (hi - lo))
 
-    idx = ((255.0 - small) / 255.0 * (len(RAMP) - 1)).round().astype(int)
+    # Clip before the power: normalisation can land a hair outside [0,255], and
+    # a negative base raised to a fractional exponent is NaN, which then casts
+    # to a garbage ramp index.
+    darkness = np.clip((255.0 - small) / 255.0, 0.0, 1.0) ** GAMMA
+    idx = (darkness * (len(RAMP) - 1)).round().astype(int)
     idx = np.clip(idx, 0, len(RAMP) - 1)
     return ["".join(RAMP[i] for i in row).rstrip() for row in idx]
 

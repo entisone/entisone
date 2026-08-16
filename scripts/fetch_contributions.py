@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 from collections import OrderedDict
 from datetime import date, datetime, timedelta
@@ -40,6 +41,17 @@ def fetch_html(user: str) -> str:
     resp = requests.get(URL.format(user), headers=headers, timeout=TIMEOUT)
     resp.raise_for_status()
     return resp.text
+
+
+def parse_reported_total(html: str) -> int | None:
+    """GitHub prints its own headline total. Use it to catch parser drift."""
+    soup = BeautifulSoup(html, "html.parser")
+    for h2 in soup.select("h2"):
+        text = " ".join(h2.get_text(" ", strip=True).split())
+        match = re.match(r"^([\d,]+)\s+contributions?\s+in the last year$", text)
+        if match:
+            return int(match.group(1).replace(",", ""))
+    return None
 
 
 def parse_days(html: str) -> list[dict]:
@@ -112,17 +124,29 @@ def main() -> int:
     user = sys.argv[1] if len(sys.argv) > 1 else USERNAME
     print(f"fetch_contributions: {user}")
 
-    days = parse_days(fetch_html(user))
+    html = fetch_html(user)
+    days = parse_days(html)
     if not days:
         print("error: parsed 0 day cells — GitHub's markup may have changed.",
               file=sys.stderr)
+        return 1
+
+    stats = derive_stats(days)
+
+    # Reconcile against GitHub's own headline. A mismatch means the day cells
+    # stopped parsing the way we expect, and the heatmap would quietly lie.
+    reported = parse_reported_total(html)
+    if reported is not None and reported != stats["total"]:
+        print(f"error: parsed {stats['total']} contributions but GitHub reports "
+              f"{reported} — the calendar markup has drifted.", file=sys.stderr)
         return 1
 
     payload = {
         "username": user,
         "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
         "range": {"start": days[0]["date"], "end": days[-1]["date"]},
-        "stats": derive_stats(days),
+        "reported_total": reported,
+        "stats": stats,
         "days": days,
     }
 
