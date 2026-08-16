@@ -1,0 +1,6 @@
+# Portrait pipeline only — run locally when you change your photo.
+# The daily GitHub Actions workflow does NOT need these (see requirements.txt).
+pillow
+numpy
+opencv-python
+rembg

@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Local photo pipeline inputs/intermediates — the committed SVG is the artifact.
+source-photo.*
+source-prepped.png
