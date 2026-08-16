@@ -24,18 +24,19 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "info-card.svg"
 
 # ---------------------------------------------------------------- edit me ---
+# Facts here mirror oneentis.dev — keep the two in step when either changes.
 CONFIG = {
     "user": "entisone",
     "host": "github",
     "rows": [
-        ("Name", "J'Francis"),
+        ("Name", "J'Francis Fabia"),
         ("Role", "Web Developer"),
-        ("Now", "Makerspace Innovhub Inc."),
-        ("Stack", "TypeScript · Vue · NestJS · Solidity"),
-        ("Tools", "Node · Vite · Docker · Hardhat"),
-        ("Web", "oneentis.dev"),
-        ("Shell", "building things that ship"),
-        ("Uptime", "on GitHub since Nov 2017"),
+        ("Based", "Pangasinan, Philippines"),
+        ("Stack", "Vue · Laravel · Next.js"),
+        ("Also", "TypeScript · PHP · Tailwind"),
+        ("Focus", "SEO · Performance · Web apps"),
+        ("Prev", "Database Administrator"),
+        ("Status", "Freelance or full-time"),
     ],
 }
 # -----------------------------------------------------------------------------

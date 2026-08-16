@@ -13,53 +13,166 @@
   </tr>
 </table>
 
+<br>
+
+**I build web products that load fast and get found.**
+
+Web developer in Pangasinan, PH · `4+ years` · `10+ clients` · `11 projects shipped`
+
 </div>
 
 <br>
 
-### `$ cat about.txt`
+### `$ about`
 
-Web developer at **Makerspace Innovhub Inc.** I work mostly in TypeScript — Vue and
-NestJS on the day job, with a side interest in Solidity and the tooling around it.
-On GitHub since November 2017.
+**Ex-DBA who moved to the front end.**
 
-Portfolio: **[oneentis.dev](https://oneentis.dev)**
+I spent three years keeping databases and records straight before I wrote websites
+full-time. It shows in how I build: structured data, real constraints, and pages that
+stay fast once they're full of content.
 
-<br>
+Four years of Vue, Laravel and Next.js builds for clients — front-end through database,
+with SEO and Core Web Vitals treated as part of the job, not an afterthought.
 
-### `$ ls -la ~/projects`
-
-| Repo | Stack | What it is |
-|---|---|---|
-| **[pokedex](https://github.com/entisone/pokedex)** | HTML · JS | Pokédex web app — [live demo](https://pokedex-v1-five.vercel.app) |
-| **[cat-race-frontend](https://github.com/entisone/cat-race-frontend)** | Vue | Front-end for a cat racing app |
-| **[solidity-2](https://github.com/entisone/solidity-2)** | Solidity · TypeScript | Smart contract work and Hardhat tooling |
-| **[entisone.github.io](https://github.com/entisone/entisone.github.io)** | HTML | GitHub Pages site |
+Currently **open to freelance projects and full-time roles**.
 
 <br>
 
-### `$ cat stack.txt`
+### `$ skills`
 
 ```text
-Languages    TypeScript · JavaScript · Solidity · HTML/CSS · Python
-Frontend     Vue · Vite
-Backend      NestJS · Node
-Web3         Solidity · Hardhat
-Tooling      Git · Docker · GitHub Actions
+languages  : HTML, CSS, JavaScript, TypeScript, PHP
+frameworks : Vue.js, Laravel, Next.js, Tailwind CSS
+tools      : Git, WordPress, Dealer CMS, DealerOn, SchemaApp, Ahrefs
+focus      : On-page SEO, Performance, Responsive UI, CMS customisation, Databases
 ```
+
+<br>
+
+### `$ work`
+
+Live, right now — real sites, go poke at them.
+
+| Project | Stack | What it is |
+|---|---|---|
+| **[Snail App](https://dazzling-cendol-1d26e9.netlify.app/)** | Next.js · Tailwind | Marketing site for a collect-and-upgrade game, built to load fast on mobile and convert cold paid traffic |
+| **[Custom Pokédex](https://pokedex-v1-five.vercel.app)** | Vue 3 · TypeScript · Vite | Every generation on a custom data layer, with instant search and filtering across ~1000 entries |
+| **[Mac OS](https://windows-portfolio-nine.vercel.app/)** | Vue 3 · TypeScript · Vite | A portfolio that recreates the Mac OS desktop — draggable windows, working taskbar, file explorer |
+| **[Frame Quest](https://cine-vault-khaki.vercel.app/)** | Vue 3 · TypeScript · Vite | Discovery app for movies, series and anime from one fast, keyboard-friendly interface |
+| **[Mini Cozy Game](https://3d-room-henna.vercel.app/)** | Vue 3 · three.js · Vite | A small interactive 3D room — a for-fun experiment in rendering a scene in the browser |
+
+<br>
+
+### `$ work --private`
+
+Client work under NDA and projects still in progress — no live demo, so here's what they
+actually are.
+
+| Project | Stack | Status |
+|---|---|---|
+| **Water Billing Management System** | PHP · MySQL · Bootstrap | `client · private` |
+| **Crypto Investment Landing Page** | Next.js · TypeScript · Tailwind | `client · private` |
+| **Spacefy** | Next.js · PHP · MySQL | `client · private` |
+| **Sisiw Bot** | Discord.js · Node.js | `shipped` |
+| **Coffee Shop POS** | Laravel · Vue · Stripe | `in progress` |
+| **CineVault** | Vue · Node.js | `in progress` |
+| **MH Bestiary** | Vue · Custom API | `in progress` |
+
+<details>
+<summary>What they are</summary>
+
+<br>
+
+- **Water Billing Management System** — Billing platform for a Local Water District: automated bill calculation, customer records and payment tracking, replacing a manual ledger process.
+- **Crypto Investment Landing Page** — Conversion-focused landing page for paid acquisition, with live price tickers and sub-1.5s loads on mobile.
+- **Spacefy** — NFT marketplace for digital artists and collectors, built on Next.js with a custom WordPress-backed NFT plugin.
+- **Sisiw Bot** — Discord bot serving Monster Hunter Wilds data: monster stats, weaknesses and drop tables, via the MH Wilds API.
+- **Coffee Shop POS** — Laravel commerce boilerplate: product catalogue, cart, Stripe checkout and an admin panel.
+- **CineVault** — Movie and TV discovery interface with a fast, keyboard-friendly browse experience.
+- **MH Bestiary** — A Monster Hunter bestiary covering the whole series, backed by a custom aggregated API.
+
+</details>
+
+<br>
+
+### `$ experience`
+
+| Role | Period |
+|---|---|
+| **Web Developer** — Contract | `Jan 2026 – Feb 2026` |
+| **Junior Web Developer** | `Nov 2023 – Mar 2025` |
+| **Freelance Web Developer** | `Nov 2021 – Nov 2023` |
+| **Database Administrator** | `Feb 2020 – Mar 2023` |
+
+<details>
+<summary>The details</summary>
+
+<br>
+
+**Web Developer — Contract** · Jan 2026 – Feb 2026
+- Delivered two production-ready projects inside the first month
+- Built responsive UI components and wired backend integrations
+
+**Junior Web Developer** · Nov 2023 – Mar 2025
+- Ran on-page SEO across client sites and lifted search rankings
+- Built and customised WordPress and Dealer CMS sites to spec
+- Improved mobile usability and responsiveness across platforms
+
+**Freelance Web Developer** · Nov 2021 – Nov 2023
+- Designed and shipped custom sites with clean, maintainable code
+- Built crypto landing pages in Next.js for paid acquisition
+- Cut load times through code and asset optimisation
+
+**Database Administrator** · Feb 2020 – Mar 2023
+- Maintained and tuned database systems across branches
+- Diagnosed and resolved issues to keep systems reliable
+
+</details>
+
+<br>
+
+### `$ services`
+
+```text
+01  Web development     Vue & Next.js front-ends, Laravel & PHP back-ends,
+                        REST APIs and integrations. Code that survives handover.
+
+02  SEO & performance   On-page and technical SEO, Core Web Vitals,
+                        schema and analytics. Faster pages, better rankings.
+
+03  CMS & maintenance   WordPress and Dealer CMS builds, themes and plugins,
+                        plus the ongoing care that keeps a site fast and current.
+```
+
+<br>
+
+### `$ socials`
+
+```text
+website   : oneentis.dev
+email     : oneentis@gmail.com
+github    : github.com/entisone
+linkedin  : in/j-francis-fabia
+```
+
+**[oneentis.dev](https://www.oneentis.dev)** ·
+**[oneentis@gmail.com](mailto:oneentis@gmail.com)** ·
+**[LinkedIn](https://www.linkedin.com/in/j-francis-fabia)**
+
+Open to freelance projects, full-time roles and collaborations. I usually reply within 24h.
 
 <br>
 
 ### `$ ./profile-art.sh --help`
 
-This README builds itself. Everything above is **animated SVG** generated by Python
+This README builds itself. Everything at the top is **animated SVG** generated by Python
 and committed to this repo — no third-party stats services, no GitHub token, no
 JavaScript.
 
 The constraint that shapes it: GitHub strips `<script>` from READMEs and sanitizes
 almost all inline CSS, but it *does* render SVGs embedded via `<img>` and runs their
-SMIL and CSS-keyframe animations. So all the motion lives inside the SVG files, and
-the README just places them.
+SMIL and CSS-keyframe animations. So all the motion lives inside the SVG files, and the
+README just places them.
 
 | Script | Does what |
 |---|---|
@@ -99,13 +212,6 @@ Credit: the approach follows
 [this write-up by Avi Vashishta](https://www.avivashishta.com/blog/build-animated-github-profile-readme).
 
 </details>
-
-<br>
-
-### `$ cat contact.txt`
-
-- Portfolio — **[oneentis.dev](https://oneentis.dev)**
-- GitHub — **[@entisone](https://github.com/entisone)**
 
 <br>
 
