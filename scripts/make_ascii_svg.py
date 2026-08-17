@@ -137,11 +137,24 @@ def build_svg(rows: list[str]) -> str:
             )
             continue
 
+        # The clip rect's base width is the full row, not 0. Starting it at 0
+        # and relying on the animation to open it would leave the portrait
+        # blank forever in any client that doesn't run SMIL. Instead the wipe
+        # runs from 0s and holds closed through this row's stagger, so the
+        # staggered look is identical where animation works and the portrait
+        # still renders where it doesn't.
+        total = round(begin + ROW_DUR, 3)
+        if begin <= 0:
+            vals, times = f"0;{run_w:.2f}", "0;1"
+        else:
+            vals = f"0;0;{run_w:.2f}"
+            times = f"0;{begin / total:.4f};1"
         defs.append(
             f'<clipPath id="w{i}">'
-            f'<rect x="{PAD:.2f}" y="{y:.2f}" width="0" height="{LINE_H:.2f}">'
-            f'<animate attributeName="width" from="0" to="{run_w:.2f}" '
-            f'begin="{begin}s" dur="{ROW_DUR}s" fill="freeze"/>'
+            f'<rect x="{PAD:.2f}" y="{y:.2f}" width="{run_w:.2f}" '
+            f'height="{LINE_H:.2f}">'
+            f'<animate attributeName="width" values="{vals}" '
+            f'keyTimes="{times}" dur="{total}s" begin="0s" fill="freeze"/>'
             f"</rect></clipPath>"
         )
         body.append(

@@ -66,21 +66,35 @@ STATIC = os.environ.get("STATIC") == "1"
 
 
 def anim(index: int) -> str:
-    """Fade + slide-in for the nth line. Empty string in STATIC mode."""
+    """Fade + slide-in for the nth line, degrading to plain visibility.
+
+    Encoding this as opacity="0" plus an animation that raises it would leave
+    the card blank forever in any client that doesn't run SMIL — reduced-motion
+    setups, some in-app browsers, static thumbnailers. So the group keeps
+    opacity="1" as its base value and the animation runs from 0s, holding 0
+    through this line's stagger before fading up. Same look, safe fallback.
+    """
     if STATIC:
         return ""
-    begin = round(START + index * STAGGER, 3)
+    delay = round(START + index * STAGGER, 3)
+    total = round(delay + FADE_DUR, 3)
+    if delay <= 0:
+        vals, times, shift = "0;1", "0;1", "-10 0;0 0"
+    else:
+        k = delay / total
+        vals, times = "0;0;1", f"0;{k:.4f};1"
+        shift = "-10 0;-10 0;0 0"
     return (
-        f'<animate attributeName="opacity" from="0" to="1" '
-        f'begin="{begin}s" dur="{FADE_DUR}s" fill="freeze"/>'
+        f'<animate attributeName="opacity" values="{vals}" keyTimes="{times}" '
+        f'dur="{total}s" begin="0s" fill="freeze"/>'
         f'<animateTransform attributeName="transform" type="translate" '
-        f'from="-10 0" to="0 0" begin="{begin}s" dur="{FADE_DUR}s" fill="freeze"/>'
+        f'values="{shift}" keyTimes="{times}" dur="{total}s" begin="0s" '
+        f'fill="freeze"/>'
     )
 
 
 def line(index: int, *content: str) -> str:
-    opacity = "1" if STATIC else "0"
-    return f'<g opacity="{opacity}">{anim(index)}{"".join(content)}</g>'
+    return f'<g opacity="1">{anim(index)}{"".join(content)}</g>'
 
 
 def build_svg() -> str:

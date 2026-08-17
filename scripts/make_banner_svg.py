@@ -197,18 +197,30 @@ def enter(begin: float, dur: float = 0.7, shift: float = 0.0,
           extra: str = "") -> str:
     """Open a group that fades (and optionally slides) in, then freezes.
 
-    In STATIC mode the group opens fully opaque instead — otherwise the frozen
-    frame would render blank, since there'd be no animation to raise it from 0.
+    The group always opens with opacity="1" as its base value. Encoding the
+    start state as opacity="0" and relying on animation to raise it would leave
+    the banner blank forever in any client that doesn't run SMIL — reduced-motion
+    setups, some in-app browsers, static thumbnailers. Instead the animation
+    begins at 0s and holds 0 through the stagger before fading up: identical
+    result where animation works, still legible where it doesn't.
     """
     if STATIC:
         return f'<g opacity="1">{extra}'
-    a = (f'<animate attributeName="opacity" from="0" to="1" begin="{begin}s" '
-         f'dur="{dur}s" fill="freeze"/>')
+    total = round(begin + dur, 3)
+    if begin <= 0:
+        vals, times = "0;1", "0;1"
+        shift_vals = f"0 {shift};0 0"
+    else:
+        k = begin / total
+        vals, times = "0;0;1", f"0;{k:.4f};1"
+        shift_vals = f"0 {shift};0 {shift};0 0"
+    a = (f'<animate attributeName="opacity" values="{vals}" keyTimes="{times}" '
+         f'dur="{total}s" begin="0s" fill="freeze"/>')
     if shift:
         a += (f'<animateTransform attributeName="transform" type="translate" '
-              f'from="0 {shift}" to="0 0" begin="{begin}s" dur="{dur}s" '
-              f'fill="freeze"/>')
-    return f'<g opacity="0">{extra}{a}'
+              f'values="{shift_vals}" keyTimes="{times}" dur="{total}s" '
+              f'begin="0s" fill="freeze"/>')
+    return f'<g opacity="1">{extra}{a}'
 
 
 def build_svg() -> str:
