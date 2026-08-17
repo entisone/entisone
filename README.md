@@ -268,14 +268,3 @@ Custom CMS builds plus the ongoing care that keeps a site fast and current.
 </div>
 
 Open to freelance projects, full-time roles and collaborations. I usually reply within 24h.
-
-
-[this write-up by Avi Vashishta](https://www.avivashishta.com/blog/build-animated-github-profile-readme).
-
-</details>
-
-<br>
-
-<div align="center">
-<sub><code>entisone@github ~ $ exit</code></sub>
-</div>
