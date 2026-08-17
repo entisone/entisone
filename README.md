@@ -1,5 +1,9 @@
 <div align="center">
 
+<img src="./banner.svg" width="860" alt="J'Francis — Full-stack developer · Builder" />
+
+<br><br>
+
 <h3><code>entisone@github ~ $ ./contributions.sh</code></h3>
 <img src="./contrib-heatmap.svg" width="860" alt="Contribution heatmap" />
 
@@ -176,6 +180,7 @@ README just places them.
 
 | Script | Does what |
 |---|---|
+| [`make_banner_svg.py`](scripts/make_banner_svg.py) | Neon signature banner — procedural wobbly border, starfield, gradient name |
 | [`prep_photo.py`](scripts/prep_photo.py) | Cuts out the background, crops to head-and-shoulders, boosts local contrast with CLAHE |
 | [`make_ascii_svg.py`](scripts/make_ascii_svg.py) | Maps brightness onto a density ramp, wipes each row in with a block cursor |
 | [`make_info_card.py`](scripts/make_info_card.py) | Hand-authored neofetch-style panel, staggered fade-in |
@@ -183,8 +188,9 @@ README just places them.
 | [`render_heatmap_svg.py`](scripts/render_heatmap_svg.py) | Draws the 53×7 grid, revealed on a diagonal |
 
 The heatmap refreshes daily at 06:17 UTC via
-[GitHub Actions](.github/workflows/update-profile-art.yml). The portrait and info card
-are static — regenerate them only when the photo or the details change.
+[GitHub Actions](.github/workflows/update-profile-art.yml). The banner, portrait and
+info card are static — regenerate them only when the photo or the details change. The
+banner needs no dependencies at all; it's pure standard library.
 
 <details>
 <summary><b>Rebuild it yourself</b></summary>
@@ -198,6 +204,7 @@ pip install -r scripts/requirements-portrait.txt # photo pipeline only
 ```
 
 ```bash
+python scripts/make_banner_svg.py
 python scripts/prep_photo.py source-photo.jpg    # --frame head | bust | full
 python scripts/make_ascii_svg.py
 python scripts/make_info_card.py
