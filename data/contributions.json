@@ -1,17 +1,17 @@
 {
   "username": "entisone",
-  "generated_at": "2026-08-24T07:29:47+00:00",
+  "generated_at": "2026-08-25T07:09:06+00:00",
   "range": {
     "start": "2025-08-24",
-    "end": "2026-08-24"
+    "end": "2026-08-25"
   },
-  "reported_total": 44,
+  "reported_total": 45,
   "stats": {
-    "total": 44,
-    "days_tracked": 366,
-    "active_days": 11,
-    "current_streak": 8,
-    "longest_streak": 8,
+    "total": 45,
+    "days_tracked": 367,
+    "active_days": 12,
+    "current_streak": 9,
+    "longest_streak": 9,
     "best_day": {
       "date": "2026-02-15",
       "count": 11
@@ -30,7 +30,7 @@
       "2026-05": 0,
       "2026-06": 0,
       "2026-07": 0,
-      "2026-08": 25
+      "2026-08": 26
     }
   },
   "days": [
@@ -1861,6 +1861,11 @@
     },
     {
       "date": "2026-08-24",
+      "count": 1,
+      "level": 1
+    },
+    {
+      "date": "2026-08-25",
       "count": 0,
       "level": 0
     }
