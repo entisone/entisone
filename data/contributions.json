@@ -1,22 +1,22 @@
 {
   "username": "entisone",
-  "generated_at": "2026-10-24T11:02:33+00:00",
+  "generated_at": "2026-10-25T11:31:59+00:00",
   "range": {
-    "start": "2025-10-19",
-    "end": "2026-10-24"
+    "start": "2025-10-26",
+    "end": "2026-10-25"
   },
-  "reported_total": 105,
+  "reported_total": 108,
   "stats": {
-    "total": 105,
-    "days_tracked": 371,
-    "active_days": 72,
-    "current_streak": 69,
-    "longest_streak": 69,
+    "total": 108,
+    "days_tracked": 365,
+    "active_days": 74,
+    "current_streak": 71,
+    "longest_streak": 71,
     "best_day": {
       "date": "2026-02-15",
       "count": 11
     },
-    "daily_average": 0.28,
+    "daily_average": 0.3,
     "months": {
       "2025-10": 0,
       "2025-11": 0,
@@ -30,45 +30,10 @@
       "2026-07": 0,
       "2026-08": 33,
       "2026-09": 30,
-      "2026-10": 23
+      "2026-10": 26
     }
   },
   "days": [
-    {
-      "date": "2025-10-19",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-20",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-21",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-22",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-23",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-24",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-25",
-      "count": 0,
-      "level": 0
-    },
     {
       "date": "2025-10-26",
       "count": 0,
@@ -1886,8 +1851,13 @@
     },
     {
       "date": "2026-10-24",
-      "count": 0,
-      "level": 0
+      "count": 1,
+      "level": 1
+    },
+    {
+      "date": "2026-10-25",
+      "count": 2,
+      "level": 1
     }
   ]
 }
